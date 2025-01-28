@@ -7,8 +7,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener {
+
+    @Inject
+    lateinit var WeatherApi: WeatherApi
 
     private val viewModel by viewModels<MainActivityViewModel>()// Make lateinit and initialize later.
     private lateinit var mRecyclerView: RecyclerView
@@ -17,6 +23,8 @@ class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
+
 
         val button = findViewById<Button>(R.id.button)
         mRecyclerView = findViewById(R.id.recyclerview)
@@ -27,6 +35,7 @@ class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener 
 
         button.setOnClickListener {
             fetchWeatherDetails()
+            WeatherApi
         }
 
         viewModel.weatherDetails.observe(this) {

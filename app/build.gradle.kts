@@ -1,8 +1,11 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id ("com.google.dagger.hilt.android")
+    id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -46,22 +49,27 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+           // excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "**/*"
         }
+    }
+
+    hilt {
+        enableAggregatingTask = true
     }
 }
 
 dependencies {
 
     //Dagger - Hilt
-    implementation (libs.hilt.android)
-    ksp (libs.hilt.android.compiler)
-    implementation (libs.androidx.hilt.navigation.compose)
-    kspTest (libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kaptTest(libs.hilt.android.compiler)
 
     //Retrofit
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

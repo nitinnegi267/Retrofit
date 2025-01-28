@@ -1,9 +1,8 @@
 package com.example.retrofitsample
 
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
-class WeatherRepository {
+class WeatherRepository(
+    private val api: WeatherApi
+) {
 
     suspend fun getWeatherInfo(
         url: String,
@@ -11,12 +10,6 @@ class WeatherRepository {
         longitude: String,
         hourly: String
     ): List<WeatherModel> {
-
-        val api = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Constants.BASEURL)
-            .build()
-            .create(WeatherApi::class.java)
 
         return api.getWeatherDetail(url, latitude, longitude, hourly).toWeatherModel()
     }
