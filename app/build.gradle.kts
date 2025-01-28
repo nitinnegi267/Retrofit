@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,6 +52,12 @@ android {
 }
 
 dependencies {
+
+    //Dagger - Hilt
+    implementation (libs.hilt.android)
+    ksp (libs.hilt.android.compiler)
+    implementation (libs.androidx.hilt.navigation.compose)
+    kspTest (libs.hilt.android.compiler)
 
     //Retrofit
     implementation (libs.retrofit)
