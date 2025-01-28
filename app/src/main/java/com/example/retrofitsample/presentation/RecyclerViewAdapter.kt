@@ -1,10 +1,11 @@
-package com.example.retrofitsample
+package com.example.retrofitsample.presentation
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofitsample.R
+import com.example.retrofitsample.domain.WeatherModel
 
 class RecyclerViewAdapter(mainActivity: MainActivity) : RecyclerView.Adapter<RecycleViewHolder>() {
 
@@ -13,8 +14,6 @@ class RecyclerViewAdapter(mainActivity: MainActivity) : RecyclerView.Adapter<Rec
     private var weatherModelList = listOf<WeatherModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecycleViewHolder {
-
-        Log.e("Adapter viewType", viewType.toString())
         val mContext = parent.context
         val layoutInflater = LayoutInflater.from(mContext)
         val view = layoutInflater.inflate(R.layout.recyclerview_row, parent, false)
@@ -22,8 +21,6 @@ class RecyclerViewAdapter(mainActivity: MainActivity) : RecyclerView.Adapter<Rec
     }
 
     override fun onBindViewHolder(holder: RecycleViewHolder, position: Int) {
-        Log.e("Adapter position", position.toString())
-
         val weatherModel = weatherModelList[position]
         holder.textViewTime.text = weatherModel.time
         holder.textViewTemperature.text = weatherModel.temperature

@@ -1,4 +1,4 @@
-package com.example.retrofitsample
+package com.example.retrofitsample.domain
 
 import com.google.gson.annotations.SerializedName
 

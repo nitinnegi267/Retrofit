@@ -1,4 +1,4 @@
-package com.example.retrofitsample.ui.theme
+package com.example.retrofitsample.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

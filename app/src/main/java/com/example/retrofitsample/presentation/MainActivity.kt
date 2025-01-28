@@ -1,20 +1,24 @@
-package com.example.retrofitsample
+package com.example.retrofitsample.presentation
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofitsample.Constants
+import com.example.retrofitsample.R
+import com.example.retrofitsample.data.WeatherApi
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener {
 
-    @Inject
-    lateinit var WeatherApi: WeatherApi
 
     private val viewModel by viewModels<MainActivityViewModel>()// Make lateinit and initialize later.
     private lateinit var mRecyclerView: RecyclerView
@@ -23,7 +27,6 @@ class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-
 
 
         val button = findViewById<Button>(R.id.button)
@@ -35,12 +38,25 @@ class MainActivity : ComponentActivity(), RecyclerViewAdapter.ItemClickListener 
 
         button.setOnClickListener {
             fetchWeatherDetails()
-            WeatherApi
+            //WeatherApi
+        }
+        lifecycleScope.launch {
+            viewModel.weatherState.collect {
+                when (it) {
+                    is WeatherState.Success -> {
+                        mAdapter.updateData(it.list)
+                    }
+
+                    is WeatherState.Error -> {
+                        Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
         }
 
-        viewModel.weatherDetails.observe(this) {
-            mAdapter.updateData(it)
-        }
+//        viewModel.weatherState.observe(this) {
+//
+//        }
     }
 
     private fun fetchWeatherDetails() {

@@ -1,4 +1,4 @@
-package com.example.retrofitsample
+package com.example.retrofitsample.domain
 
 data class WeatherModel(
     val latitude: String = "",

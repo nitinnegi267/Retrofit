@@ -1,5 +1,6 @@
-package com.example.retrofitsample
+package com.example.retrofitsample.data
 
+import com.example.retrofitsample.domain.WeatherEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url

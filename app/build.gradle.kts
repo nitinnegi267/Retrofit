@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
 }
 
 android {
@@ -49,7 +49,7 @@ android {
     }
     packaging {
         resources {
-           // excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            // excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "**/*"
         }
     }
@@ -82,6 +82,20 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.cardview)
     testImplementation(libs.junit)
+
+    // For Robolectric tests.
+    testImplementation("com.google.dagger:hilt-android-testing:2.51.1")
+    // ...with Kotlin.
+    kaptTest("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    // mockk
+    testImplementation("io.mockk:mockk-android:1.13.16")
+    testImplementation("io.mockk:mockk-agent:1.13.16")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+    testImplementation("org.robolectric:robolectric:4.10.3")
+
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
