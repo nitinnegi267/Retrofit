@@ -1,5 +1,6 @@
 package com.example.retrofitsample.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.retrofitsample.Resource
@@ -24,6 +25,15 @@ class MainActivityViewModel @Inject constructor(
     private val _weatherState = MutableSharedFlow<WeatherState>()//
     var weatherState: SharedFlow<WeatherState> = _weatherState
     private var job: Job? = null
+
+    fun add(param1: Int, param2: Int): Int {
+
+        return if (param1 != 1) {
+            param1 + param2
+        } else {
+            param1 * param2
+        }
+    }
 
     fun getWeatherDetails(
         url: String, latitude: String, longitude: String, hourly: String

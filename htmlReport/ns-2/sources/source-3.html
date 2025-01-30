@@ -1,0 +1,84 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > WeatherApi</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.retrofitsample.data</a>
+</div>
+
+<h1>Coverage Summary for Class: WeatherApi (com.example.retrofitsample.data)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">WeatherApi</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.retrofitsample.data
+&nbsp;
+&nbsp;import com.example.retrofitsample.domain.WeatherEntity
+&nbsp;import retrofit2.http.GET
+&nbsp;import retrofit2.http.Query
+&nbsp;import retrofit2.http.Url
+&nbsp;
+&nbsp;interface WeatherApi {
+&nbsp;    @GET
+&nbsp;    suspend fun getWeatherDetail(
+&nbsp;        @Url url: String,
+&nbsp;        @Query(&quot;latitude&quot;) latitude: String,
+&nbsp;        @Query(&quot;longitude&quot;) longitude: String,
+&nbsp;        @Query(&quot;hourly&quot;) hourly: String,
+&nbsp;    ): WeatherEntity
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-30 12:30</div>
+</div>
+</body>
+</html>

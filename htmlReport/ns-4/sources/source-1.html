@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > WeatherEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.retrofitsample.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: WeatherEntity (com.example.retrofitsample.domain)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WeatherEntity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">WeatherEntity$Hourly</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WeatherEntity$HourlyUnits</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.retrofitsample.domain
+&nbsp;
+&nbsp;import com.google.gson.annotations.SerializedName
+&nbsp;
+<b class="nc">&nbsp;data class WeatherEntity(</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;latitude&quot;)</b>
+<b class="nc">&nbsp;    val latitude: String,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;longitude&quot;)</b>
+<b class="nc">&nbsp;    val longitude: String,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;timezone&quot;)</b>
+<b class="nc">&nbsp;    val timezone: String,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;elevation&quot;)</b>
+<b class="nc">&nbsp;    val elevation: String,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;hourly_units&quot;)</b>
+<b class="nc">&nbsp;    val hourlyUnits: HourlyUnits,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;hourly&quot;)</b>
+<b class="nc">&nbsp;    val hourly: Hourly,</b>
+<b class="nc">&nbsp;    @SerializedName(&quot;reason&quot;)</b>
+<b class="nc">&nbsp;    val reason: String?</b>
+&nbsp;) {
+<b class="nc">&nbsp;    data class HourlyUnits(</b>
+<b class="nc">&nbsp;        @SerializedName(&quot;time&quot;)</b>
+<b class="nc">&nbsp;        val time: String,</b>
+<b class="nc">&nbsp;        @SerializedName(&quot;temperature_2m&quot;)</b>
+<b class="nc">&nbsp;        val temperature2m: String,</b>
+&nbsp;    )
+&nbsp;
+<b class="nc">&nbsp;    data class Hourly(</b>
+<b class="nc">&nbsp;        @SerializedName(&quot;time&quot;)</b>
+<b class="nc">&nbsp;        val time: List&lt;String&gt; = emptyList(),</b>
+<b class="nc">&nbsp;        @SerializedName(&quot;temperature_2m&quot;)</b>
+<b class="nc">&nbsp;        val temperature2m: List&lt;String&gt; = emptyList(),</b>
+&nbsp;    )
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-30 12:30</div>
+</div>
+</body>
+</html>

@@ -45,6 +45,21 @@ class MainActivityViewModelTest {
     }
 
     @Test
+    fun `test add for success`() = runTest {
+        // Given
+
+        val param1 = 2
+        val param2 = 2
+
+        // When
+        val expectedResult = viewModel.add(param1, param2)
+
+        // Then
+        assertEquals(expectedResult, 4)
+
+    }
+
+    @Test
     fun `test getWeatherDetails for success`() = runTest {
 
         // GIVEN
